@@ -2,7 +2,7 @@ from django.db import models
 
 class Item(models.Model):
 
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     item = models.CharField(max_length=40)
     price = models.CharField(max_length=10)
     qty = models.CharField(max_length=10)
