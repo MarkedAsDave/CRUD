@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+<!-- Navbar content -->
+{% block navbar-content %}
+<i class="text-warning fas fa-tshirt"></i>&nbsp;&nbsp; Item List
+{% endblock navbar-content %}
+
+<!-- Page Content-->
+{% block content %}
+<div class="container">
+
+    <br><br>
+
+    <a href="{% url 'add_item' %}" class="btn btn-outline-secondary btn-sm"><i class="fas fa-plus"></i>&nbsp;&nbsp; Add Item</a>
+
+    <table class="table table-bordered table-sm mt-4" style="text-align: center; font-size: 14px;">
+        <thead class="table-warning">
+            <tr>
+                <th style="width: 25%;">Item Name</th>
+                <th style="width: 15%;">Price</th>
+                <th style="width: 15%;">Quantity</th>
+                <th colspan="2" style="width: 10%;">Action</th>
+            </tr>
+        </thead>
+        <!-- Back-end Data -->
+        {% for item in items %}
+        <tr>
+            <td>{{ item.item }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.qty }}</td>
+            <td>
+                <a href="/item/{{ item.id }}" class="btn btn-warning" title="Edit Item">
+                    <i class="fas fa-pen"></i>
+                </a>
+            </td>
+            <td>
+                <a href="/delete_item/{{ item.id }}" class="btn btn-secondary" title="Delete Item">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor  %}
+    </table>
+
+</div> <!-- END // container -->
+{% endblock content %}
