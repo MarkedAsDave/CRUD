@@ -1,60 +1,53 @@
-{% extends 'base.html' %}
-
-<!-- Title on tab browser -->
-{% block title%} Add Item {% endblock title%}
-
-<!-- Navbar content -->
-{% block navbar-content %}
-<i class="fas fa-plus"></i>&nbsp;&nbsp; Add Product
-{% endblock navbar-content %}
-
-<!-- Page Content-->
-{% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card card-body mt-5 {% block card-color %} border-dark text-light {% endblock card-color %}" style="background-color: #051A65;">
-                <span class="text-center">{% block card-title %} ENTER ITEM {% endblock card-title %}</span>
-            </div>
-            <!-- FORM -->
-            <form {% block action %} action="/add_item" {% endblock action %} method="POST" enctype="multipart/form-data" autocomplete="off" class="card p-3 border-dark mt-3" style="background-color:#D9D9D9;">
+<!-- Modal -->
+  <div class="modal fade" {% block modal-id %} id="addModal" {% endblock modal-id %} tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="addModalLabel">{% block modal-title %} <i class="fas fa-plus"></i>&nbsp;&nbsp; Add Item {% endblock modal-title %} </h6>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      
+          
+             <!-- FORM -->
+             <form {% block action %} action="/add_item" {% endblock action %} method="POST" enctype="multipart/form-data" autocomplete="off">
                 {% csrf_token %}
 
-                <!-- ===== Block ID (denied here) ===== -->
-                {% block value-id %} {% endblock value-id %}
+                <div class="modal-body">
 
-                <div class="input-group mb-3">
-                    <span class="side-label btn border-secondary bg-light"> <i class="fas fa-shopping-bag"></i></span>
-                    <input type="text" class="form-control" name="item" maxlength="40" placeholder="Item name" required {% block value-item %} {% endblock value-item %}>
-                </div>
+                    <!-- ===== Block ID (denied here) ===== -->
+                    {% block value-id %} {% endblock value-id %}
 
-                <div class="input-group mb-3">
-                    <span class="side-label btn border-secondary bg-light"> <i class="fas fa-dollar-sign"></i></span>
-                    <input type="text" class="form-control" name="price" maxlength="40" placeholder="price" required {% block value-price %} {% endblock value-price %}>
-                </div>
+                    <div class="input-group mb-3">
+                        <span class="side-label btn border-secondary bg-light"> <i class="fas fa-shopping-bag"></i></span>
+                        <input type="text" class="form-control" name="item" maxlength="40" placeholder="Item name" required {% block value-item %} {% endblock value-item %}>
+                    </div>
 
-                <div class="input-group mb-3">
-                    <span class="side-label btn border-secondary bg-light"> <i class="fas fa-bars"></i></span>
-                    <input type="text" class="form-control" name="qty" maxlength="40" placeholder="quantity" required {% block value-qty %} {% endblock value-qty %}>
-                </div>
+                    <div class="input-group mb-3">
+                        <span class="side-label btn border-secondary bg-light"> <i class="fas fa-dollar-sign"></i></span>
+                        <input type="text" class="form-control" name="price" maxlength="40" placeholder="price" required {% block value-price %} {% endblock value-price %}>
+                    </div>
 
-                <div class="mt-4" style="width: 100%;">
-                    <button type="submit" class="btn btn-secondary mb-3" style="background-color: #051A65;">
-                        {% block btn-action %}<i class="fas fa-plus"></i>&nbsp;&nbsp; Add Item {% endblock btn-action %}
-                    </button>
-                    <a href="{% url 'home' %}" class="btn btn-outline-dark mb-3 ms-2" style="width: 50px; " title="Back" >
-                        <i class="fas fa-chevron-left"></i>
+                    <div class="input-group mb-3">
+                        <span class="side-label btn border-secondary bg-light"> <i class="fas fa-bars"></i></span>
+                        <input type="text" class="form-control" name="qty" maxlength="40" placeholder="quantity" required {% block value-qty %} {% endblock value-qty %}>
+                    </div>
 
-                    </a>
-                    <button type="reset" class="btn btn-outline-dark mb-3 ms-2" style="width: 50px;" title="Reset">
-                        <i class="fas fa-sync-alt"></i>
-                    </button>
+                    <div class="mt-4" style="width: 100%;">
+                        <button type="submit" class="btn btn-secondary mb-3" style="background-color: #051A65;">
+                            {% block btn-action %}<i class="fas fa-plus"></i>&nbsp;&nbsp; Add Item {% endblock btn-action %}
+                        </button>
+                        <a href="{% url 'home' %}" class="btn btn-outline-dark mb-3 ms-2" style="width: 50px; " title="Back" >
+                            <i class="fas fa-chevron-left"></i>
+
+                        </a>
+                        <button type="reset" class="btn btn-outline-dark mb-3 ms-2" style="width: 50px;" title="Reset">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
                 </div>
 
             </form>
+
         </div>
     </div>
-
-</div> <!-- END // Containter -->
-
-{% endblock content %}
+</div>

@@ -1,24 +1,18 @@
-{% extends 'Add.html' %}
+{% extends 'add.html' %}
 
-<!-- Title on tab browser -->
-{% block title%} Edit Item {% endblock title%}
-
-<!-- Navbar content -->
-{% block navbar-content %}
-<i class="fas fa-pen"></i>&nbsp;&nbsp; Edit Item
-{% endblock navbar-content %}
-
-<!-- Block card color and  title -->
-{% block card-color%} border-dark bg-blue text-white {% endblock card-color%}
-{% block card-title%} <strong>Registered at: </strong><span> {{ item.created_at | date:'m/d/y (H:i)'}}</span> {% endblock card-title%}
+<!-- Modal ID -->
+{% block modal-id %} id="editModal{{ item.pk }}" {% endblock modal-id %}
+ 
+<!-- Modal Title -->
+{% block modal-title %} <i class="fas fa-edit"></i>&nbsp;&nbsp; Edit Item {% endblock modal-title %}
 
 <!-- Form action -->
 {% block action %} action="/edit_item" {% endblock action %}
 
-<!-- Button action -->
+<!-- Button action (content) -->
 {% block btn-action %} <i class="fas fa-server"></i>&nbsp;&nbsp; Save Changes{% endblock btn-action %} 
 
-<!-- ========= <INPUTS> ======== -->
+<!-- ========= All <INPUTS> ======== -->
 <!-- ID -->
 {% block value-id %}
 <div class="input-group mb-3">
