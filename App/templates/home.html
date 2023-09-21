@@ -2,7 +2,7 @@
 
 <!-- Navbar content -->
 {% block navbar-content %}
-<i class="text-warning fas fa-tshirt"></i>&nbsp;&nbsp; Item List
+<i class="fas fa-industry"></i>&nbsp;&nbsp; Item List
 {% endblock navbar-content %}
 
 <!-- Page Content-->
@@ -10,12 +10,14 @@
 <div class="container">
 
     <br><br>
+    <div class="d-flex justify-content-end">
+        <a href="{% url 'add_item' %}" class="btn btn-outline-secondary btn-sm" style="background-color: #051A65; color: #fff;"><i class="fas fa-plus"></i>&nbsp;&nbsp; Add Item</a>
+    </div>
 
-    <a href="{% url 'add_item' %}" class="btn btn-outline-secondary btn-sm"><i class="fas fa-plus"></i>&nbsp;&nbsp; Add Item</a>
-
-    <table class="table table-bordered table-sm mt-4" style="text-align: center; font-size: 14px;">
-        <thead class="table-warning">
+    <table class="table table-bordered table-sm mt-4" style="text-align: center; font-size: 14px; background-color: #D9D9D9;" >
+        <thead class="table table-bordered table-sm mt-4" style="text-align: center; font-size: 14px;">
             <tr>
+                <th style="width: 5%;">ID</th>
                 <th style="width: 25%;">Item Name</th>
                 <th style="width: 15%;">Price</th>
                 <th style="width: 15%;">Quantity</th>
@@ -25,16 +27,17 @@
         <!-- Back-end Data -->
         {% for item in items %}
         <tr>
+            <td>{{ item.id }} </td>
             <td>{{ item.item }}</td>
             <td>{{ item.price }}</td>
             <td>{{ item.qty }}</td>
             <td>
-                <a href="/item/{{ item.id }}" class="btn btn-warning" title="Edit Item">
+                <a href="/item/{{ item.id }}" class="btn" title="Edit Item">
                     <i class="fas fa-pen"></i>
                 </a>
             </td>
             <td>
-                <a href="/delete_item/{{ item.id }}" class="btn btn-secondary" title="Delete Item">
+                <a href="/delete_item/{{ item.id }}" class="btn " title="Delete Item">
                     <i class="fas fa-trash-alt"></i>
                 </a>
             </td>

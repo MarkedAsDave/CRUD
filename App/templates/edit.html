@@ -5,11 +5,11 @@
 
 <!-- Navbar content -->
 {% block navbar-content %}
-<i class="text-warning fas fa-pen"></i>&nbsp;&nbsp; Edit Product
+<i class="fas fa-pen"></i>&nbsp;&nbsp; Edit Product
 {% endblock navbar-content %}
 
 <!-- Block card color and  title -->
-{% block card-color%} border-dark bg-warning {% endblock card-color%}
+{% block card-color%} border-dark bg-light {% endblock card-color%}
 {% block card-title%} <strong>Registered at: </strong><span> {{ item.created_at | date:'m/d/y (H:i)'}}</span> {% endblock card-title%}
 
 <!-- Form action -->
