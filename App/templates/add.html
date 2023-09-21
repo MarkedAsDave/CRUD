@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <div class="card card-body mt-5 {% block card-color %} border-dark text-light bg-secondary {% endblock card-color %}">
+            <div class="card card-body mt-5 {% block card-color %} border-dark text-light {% endblock card-color %}" style="background-color: #051A65;">
                 <span class="text-center">{% block card-title %} ENTER ITEM {% endblock card-title %}</span>
             </div>
             <!-- FORM -->
@@ -24,7 +24,7 @@
                 {% block value-id %} {% endblock value-id %}
 
                 <div class="input-group mb-3">
-                    <span class="side-label btn border-secondary bg-light"> <i class="fas fa-tshirt"></i></span>
+                    <span class="side-label btn border-secondary bg-light"> <i class="fas fa-shopping-bag"></i></span>
                     <input type="text" class="form-control" name="item" maxlength="40" placeholder="Item name" required {% block value-item %} {% endblock value-item %}>
                 </div>
 
@@ -34,15 +34,15 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    <span class="side-label btn border-secondary bg-light"> <i class="fas fa-buffer"></i></span>
+                    <span class="side-label btn border-secondary bg-light"> <i class="fas fa-bars"></i></span>
                     <input type="text" class="form-control" name="qty" maxlength="40" placeholder="quantity" required {% block value-qty %} {% endblock value-qty %}>
                 </div>
 
                 <div class="mt-4" style="width: 100%;">
-                    <button type="submit" class="btn btn-secondary mb-3">
+                    <button type="submit" class="btn btn-secondary mb-3" style="background-color: #051A65;">
                         {% block btn-action %}<i class="fas fa-plus"></i>&nbsp;&nbsp; Add Item {% endblock btn-action %}
                     </button>
-                    <a href="{% url 'home' %}" class="btn btn-outline-dark mb-3 ms-2" style="width: 50px;" title="Back">
+                    <a href="{% url 'home' %}" class="btn btn-outline-dark mb-3 ms-2" style="width: 50px; " title="Back" >
                         <i class="fas fa-chevron-left"></i>
 
                     </a>
